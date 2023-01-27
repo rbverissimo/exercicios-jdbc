@@ -38,6 +38,7 @@ public class ConsultarPessoas2 {
 							+ p.getNome());
 		}
 		
+		stmt.close();
 		entrada.close();
 		conexao.close();
 		
