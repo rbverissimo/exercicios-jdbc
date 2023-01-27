@@ -24,7 +24,6 @@ public class AlterarNomePessoa {
 		stmt.setInt(1, codigo);
 		ResultSet r = stmt.executeQuery();
 		
-		// List<Pessoa> pessoas = new ArrayList<>();
 		
 		if(r.next()) {
 			Pessoa p = new Pessoa(r.getInt(1), r.getString(2));
