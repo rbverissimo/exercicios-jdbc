@@ -20,6 +20,8 @@ public class DAO {
 			if(stmt.executeUpdate() > 0) {
 				ResultSet r = stmt.getGeneratedKeys();
 				if(r.next()) {
+					System.out.println("Inclusão realizada com sucesso no ID: " +
+								r.getInt(1));
 					return r.getInt(1);
 				}
 			}
@@ -30,6 +32,17 @@ public class DAO {
 			throw new RuntimeException(e);
 		}
 		
+	}
+	
+	public void close() {
+		try {
+			getConexao().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			conexao = null;
+		}
 	}
 	
 	private void adicionarAtributos(PreparedStatement stmt,
